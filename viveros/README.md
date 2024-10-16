@@ -20,30 +20,23 @@
     - [**Vivero**](#vivero-1)
     - [**Zona**](#zona-1)
     - [**Empleado**](#empleado-1)
+    - [**Trabaja**](#trabaja)
     - [**Producto**](#producto-1)
     - [**Pedido**](#pedido-1)
     - [**Cliente**](#cliente-2)
     - [**Cliente+**](#cliente-3)
   - [3. Descripción de cada una de las relaciones definidas.](#3-descripción-de-cada-una-de-las-relaciones-definidas)
     - [**Vivero-Empresa**](#vivero-empresa)
-    - [Relación: Tiene](#relación-tiene)
     - [**Vivero-Zona**](#vivero-zona)
-    - [Relación: Pertenece](#relación-pertenece)
     - [**Empleado-Zona**](#empleado-zona)
-    - [Relación: Trabaja](#relación-trabaja)
     - [**Producto-Zona**](#producto-zona)
-    - [Relación: Asignado](#relación-asignado)
     - [**Empleado-Pedido**](#empleado-pedido)
-    - [Relación: Realiza](#relación-realiza)
     - [**Pedido-Producto**](#pedido-producto)
-    - [Relación: Tiene](#relación-tiene-1)
     - [**Pedido-Cliente**](#pedido-cliente)
-    - [Relación: Realiza](#relación-realiza-1)
   - [4. Restricciones semánticas](#4-restricciones-semánticas)
-    - [Restricciones semánticas en el modelo entidad-relación](#restricciones-semánticas-en-el-modelo-entidad-relación)
-      - [1. Relaciones](#1-relaciones)
-      - [2. Entidades y atributos identificadores](#2-entidades-y-atributos-identificadores)
-      - [3. Condiciones sobre los atributos](#3-condiciones-sobre-los-atributos)
+    - [1. Relaciones](#1-relaciones)
+    - [2. Entidades y atributos identificadores](#2-entidades-y-atributos-identificadores)
+    - [3. Condiciones sobre los atributos](#3-condiciones-sobre-los-atributos)
 
 
 # Enunciado 
@@ -142,6 +135,21 @@ Se registra la fecha en la que accedió al programa de bonificaciones, el númer
     - Puede tomar cualquier valor de tipo `string` que describa el objetivo que dicho empleado ha realizado. Ejemplo: "Vender diez productos"
 </p>
 
+### **Trabaja**
+<p align="center">
+  <img src="images/trabaja.png" alt="Relacion trabaja">
+
+  - Fecha inicio: `fecha`
+    - Puede tomar cualquier valor de tipo `fecha` que represente la fecha en la que el empleado inició el trabajo. Ejemplo: "2024-10-01"
+
+  - Fecha fin: `fecha`
+    - Puede tomar cualquier valor de tipo `fecha` que represente la fecha en la que el empleado finalizó el trabajo. Ejemplo: "2024-10-02"
+  
+
+  - Objetivos: `string`
+    - Puede tomar cualquier valor de tipo `string` que describa la tarea que dicho empleado ha de realizar. Ejemplo: "Podar"
+</p>
+
 ### **Producto**
 <p align="center">
   <img src="images/producto.png" alt="Entidad producto">
@@ -164,7 +172,7 @@ Se registra la fecha en la que accedió al programa de bonificaciones, el númer
     - Puede tomar cualquier valor de tipo `int` que represente el ID del pedido. Ejemplo: "123456"
   
   - Fecha realización: `fecha`
-    - Puede tomar cualquier valor de tipo `fecha` que represente la fecha en la que se realizó el pedido. Ejemplo: "2024-10-01"
+    - Puede tomar cualquier valor de tipo `fecha` que represente la fecha en la que se realizó el pedido. Ejemplo: "2024-10-03"
 </p>
 
 ### **Cliente**
@@ -197,101 +205,100 @@ Se registra la fecha en la que accedió al programa de bonificaciones, el númer
 <p align="center">
   <img src="images/vivero-empresa.png" alt="Relacion vivero-empresa">
 
-  ### Relación: Tiene
-  Muestra la relación entre la empresa y los viveros que tiene. 
+  - ### Relación: Tiene
+    Muestra la relación entre la empresa y los viveros que tiene. 
 
-  La cardinalidad de la relación es:
+    La cardinalidad de la relación es:
 
-  - **(1, N)** para la empresa, una empresa tiene 1 o muchos viveros.
-  - **(1, 1)** para el vivero, un vivero sólo puede pertenecer a una empresa.
+    - **(1, N)** para la empresa, una empresa tiene 1 o muchos viveros.
+    - **(1, 1)** para el vivero, un vivero sólo puede pertenecer a una empresa.
 </p>
 
 ### **Vivero-Zona**
 <p align="center">
   <img src="images/vivero-zona.png" alt="Relacion vivero-zona">
 
-  ### Relación: Pertenece
-  Muestra la relación entre una zona y el vivero al que pertenece.
+  - ### Relación: Pertenece
+    Muestra la relación entre una zona y el vivero al que pertenece.
 
-  La cardinalidad de la relación es:
+    La cardinalidad de la relación es:
 
-  - **(1, 1)** para la zona, una zona pertenece a un sólo vivero.
-  - **(1, N)** para el vivero, ya que un mismo vivero puede tener una o múltiples zonas.
+    - **(1, 1)** para la zona, una zona pertenece a un sólo vivero.
+    - **(1, N)** para el vivero, ya que un mismo vivero puede tener una o múltiples zonas.
 </p>
 
 ### **Empleado-Zona**
 <p align="center">
   <img src="images/empleado-zona.png" alt="Relacion empleado-zona">
 
-  ### Relación: Trabaja
-  Muestra la relación entre un empleado y la zona en la que trabaja.
+  - ### Relación: Trabaja
+    Muestra la relación entre un empleado y la zona en la que trabaja.
 
-  La cardinalidad de la relación es:
+    La cardinalidad de la relación es:
 
-  - **(1, N)** para la zona, ya que en una zona pueden trabajar de uno a muchos empleados.
-  - **(1, 1)** para el empleado, ya que un empleado sólo puede trabajar en una zona a la vez.
-  - Se le han asignado los atributos **tarea**, **fecha inicio** y **fecha fin** para llevar el control de la productividad en una cierta tarea.
+    - **(1, N)** para la zona, ya que en una zona pueden trabajar de uno a muchos empleados.
+    - **(1, 1)** para el empleado, ya que un empleado sólo puede trabajar en una zona a la vez.
+  
+    Se le han asignado los atributos **tarea**, **fecha inicio** y **fecha fin** para llevar el control de la productividad en una cierta tarea.
 </p>
 
 ### **Producto-Zona**
 <p align="center">
   <img src="images/producto-zona.png" alt="Relacion producto-zona">
 
-  ### Relación: Asignado
-  Muestra la relación entre un producto y la zona a la que ha sido asignado.
+  - ### Relación: Asignado
+    Muestra la relación entre un producto y la zona a la que ha sido asignado.
 
-  La cardinalidad de la relación es:
+    La cardinalidad de la relación es:
 
-  - **(1, N)** para la zona, una zona puede tener asignados uno o muchos productos.
-  - **(1, 1)** para el producto, ya que un producto sólo puede ser asignado a una zona.
+    - **(1, N)** para la zona, una zona puede tener asignados uno o muchos productos.
+    - **(1, 1)** para el producto, ya que un producto sólo puede ser asignado a una zona.
 </p>
 
 ### **Empleado-Pedido**
 <p align="center">
   <img src="images/empleado-pedido.png" alt="Relacion empleado-pedido">
 
-  ### Relación: Realiza
-  Muestra la relación entre un empleado y el pedido que realiza.
+  - ### Relación: Realiza
+    Muestra la relación entre un empleado y el pedido que realiza.
 
-  La cardinalidad de la relación es:
+    La cardinalidad de la relación es:
 
-  - **(1, 1)** para el pedido, un pedido sólo puede ser realizado por un empleado.
-  - **(0, N)** para el empleado, un empleado puede realizar cero o más pedidos.
+    - **(1, 1)** para el pedido, un pedido sólo puede ser realizado por un empleado.
+    - **(0, N)** para el empleado, un empleado puede realizar cero o más pedidos.
 </p>
 
 ### **Pedido-Producto**
 <p align="center">
   <img src="images/pedido-producto.png" alt="Relacion pedido-producto">
 
-  ### Relación: Tiene
-  Muestra la relación entre un pedido y los productos que tiene.
+  - ### Relación: Tiene
+    Muestra la relación entre un pedido y los productos que tiene.
 
-  La cardinalidad de la relación es:
+    La cardinalidad de la relación es:
 
-  - **(0, 1)** para el producto, un producto puede tener o no un pedido asociado.
-  - **(1, N)** para el pedido, un pedido tiene mínimo un producto y máximo N productos asociados.
+    - **(0, 1)** para el producto, un producto puede tener o no un pedido asociado.
+    - **(1, N)** para el pedido, un pedido tiene mínimo un producto y máximo N productos asociados.
 </p>
 
 ### **Pedido-Cliente**
 <p align="center">
   <img src="images/pedido-cliente.png" alt="Relacion pedido-cliente">
 
-  En esta relación se muestra una restricción de exclusividad, la cual indica en este caso que un pedido puede estar relacionado con un cliente normal o bien con un cliente+ miembro de la membresía Tajinaste Plus, pero no puede estar relacionado con ambos a la vez.
+    En esta relación se muestra una restricción de exclusividad, la cual indica en este caso que un pedido puede estar relacionado con un cliente normal o bien con un cliente+ miembro de la membresía Tajinaste Plus, pero no puede estar relacionado con ambos a la vez.
 
-  ### Relación: Realiza
-  Muestra la relación entre un cliente y el pedido que realiza.
+  - ### Relación: Realiza
+    Muestra la relación entre un cliente y el pedido que realiza.
 
-  La cardinalidad de la relación es:
+    La cardinalidad de la relación es:
 
-  - **(1, N)** para el cliente, un cliente realiza uno o más pedidos, ya que si no tuviese ningún pedido realizado no se identificaría como cliente.
-  - **(1, 1)** para el pedido, un pedido sólo puede ser realizado por un cliente.
+    - **(1, N)** para el cliente, un cliente realiza uno o más pedidos, ya que si no tuviese ningún pedido realizado no se identificaría como cliente.
+    - **(1, 1)** para el pedido, un pedido sólo puede ser realizado por un cliente.
 </p>
 
 ## 4. Restricciones semánticas
 
-### Restricciones semánticas en el modelo entidad-relación
-
-#### 1. Relaciones
+### 1. Relaciones
 - **Dependencia de existencia**:
 - Varias relaciones en el modelo implican que una entidad no puede existir sin estar vinculada a otra entidad. Por ejemplo, la relación "realiza" entre *Pedido* y *Cliente* sugiere que un cliente debe estar asociado con un pedido y viceversa ya que no puede existir un pedido que no pertenezca a ningun cliente y tampoco puede existir un cliente sin que tenga algún pedido asociado.
   
@@ -299,12 +306,12 @@ Se registra la fecha en la que accedió al programa de bonificaciones, el númer
 
 - **Unicidad en las asociaciones**: Algunas relaciones, como "realiza", imponen restricciones de exclusividad, donde un pedido sólo puede estar asociado a un único empleado, lo que garantiza la integridad en el origen de los pedidos.
 
-#### 2. Entidades y atributos identificadores
+### 2. Entidades y atributos identificadores
 - **Atributos identificadores únicos**: Todas las entidades cuentan con identificadores únicos (como *ID*, *georref*, o *Nombre*) que aseguran la unicidad y la integridad dentro del sistema. Estos atributos son cruciales para evitar duplicidades y garantizar la correcta identificación de cada instancia en las bases de datos.
 
 - **Restricciones de integridad de los datos**: Atributos como el stock del producto, las fechas, y las georreferenciaciones están sujetos a restricciones de integridad, lo que asegura que se introduzcan datos válidos y consistentes dentro del modelo.
 
-#### 3. Condiciones sobre los atributos
+### 3. Condiciones sobre los atributos
 - **Validaciones temporales**: Atributos como la *Fecha inicio* y *Fecha fin* en la relación del empleado asignado a una zona sugieren la existencia de restricciones que aseguran que las fechas tengan coherencia lógica (por ejemplo, la fecha de inicio debe ser anterior a la fecha de fin).
 
 - **Integridad sobre valores**: Otros atributos como la bonificación o el stock pueden estar sujetos a restricciones adicionales de negocio, como límites en el descuento proporcionado de la bonificación, ya que este no puede superar ciertos límites en los que dejaría de ser rentable la realización del pedido. O restricciones en las cantidades mínimas o máximas que se pueden vender, las cuales deben ser respetadas para mantener la coherencia de las operaciones.
