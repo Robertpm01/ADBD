@@ -13,8 +13,7 @@
     - [**Empleado**](#empleado)
     - [**Producto**](#producto)
     - [**Pedido**](#pedido)
-    - [**Cliente**](#cliente)
-    - [**Cliente+**](#cliente-1)
+    - [**Cliente+**](#cliente)
   - [2. Descripción y ejemplos ilustrativos del dominio de cada uno de los atributos de las entidades y de las relaciones.](#2-descripción-y-ejemplos-ilustrativos-del-dominio-de-cada-uno-de-los-atributos-de-las-entidades-y-de-las-relaciones)
     - [**Empresa**](#empresa-1)
     - [**Vivero**](#vivero-1)
@@ -23,14 +22,12 @@
     - [**Trabaja**](#trabaja)
     - [**Producto**](#producto-1)
     - [**Pedido**](#pedido-1)
-    - [**Cliente**](#cliente-2)
-    - [**Cliente+**](#cliente-3)
+    - [**Cliente+**](#cliente-1)
   - [3. Descripción de cada una de las relaciones definidas.](#3-descripción-de-cada-una-de-las-relaciones-definidas)
     - [**Vivero-Empresa**](#vivero-empresa)
     - [**Vivero-Zona**](#vivero-zona)
-    - [**Empleado-Zona**](#empleado-zona)
     - [**Producto-Zona**](#producto-zona)
-    - [**Empleado-Pedido**](#empleado-pedido)
+    - [**Empleado-Zona/Pedido**](#empleado-zonapedido)
     - [**Pedido-Producto**](#pedido-producto)
     - [**Pedido-Cliente**](#pedido-cliente)
   - [4. Restricciones semánticas](#4-restricciones-semánticas)
@@ -78,10 +75,6 @@ Representa las órdenes de compra que se generan cuando un cliente adquiere prod
 Se identifica mediante su ID para poder localizar un pedido en concreto.
 Se almacena la fecha en la que se realizó el pedido.
 
-### **Cliente**
-Personas o entidades que realizan compras en los viveros de la empresa.
-Se identifican mediante su ID de cliente.
-
 ### **Cliente+**
 Subtipo de cliente que pertenece al programa de fidelización Tajinaste Plus. Tienen beneficios como bonificaciones basadas en el volumen de compras.
 Se identifican mediante su ID de cliente.
@@ -99,9 +92,11 @@ Se registra la fecha en la que accedió al programa de bonificaciones, el númer
 ### **Vivero**
 <p align="center">
   <img src="images/vivero.png" alt="Entidad vivero">
-
-  - `(PK)` Georreferenciación: `float`
-  - Es un atributo compuesto por otros dos atributos:
+  
+  - `(PK)` ID zona:
+    - Puede tomar cualquier valor de tipo `int` que represente el ID de la zona. Ejemplo: "123456"
+  - Georreferenciación: `float`
+    - Es un atributo compuesto por otros dos atributos:
     - Latitud: `float`
       - Puede tomar cualquier valor de tipo `float` que represente la latitud en el eje de coordenadas. Ejemplo: "123456.78"
     - Longitud: `float`
@@ -112,8 +107,10 @@ Se registra la fecha en la que accedió al programa de bonificaciones, el númer
 <p align="center">
   <img src="images/zona.png" alt="Entidad zona">
 
-  - `(PK)` Georreferenciación: `float`
-  - Es un atributo compuesto por otros dos atributos:
+  - `(PK)` ID zona:
+    - Puede tomar cualquier valor de tipo `int` que represente el ID de la zona. Ejemplo: "123456"
+  - Georreferenciación: `float`
+    - Es un atributo compuesto por otros dos atributos:
     - Latitud: `float`
       - Puede tomar cualquier valor de tipo `float` que represente la latitud en el eje de coordenadas. Ejemplo: "123456.78"
     - Longitud: `float`
@@ -175,14 +172,6 @@ Se registra la fecha en la que accedió al programa de bonificaciones, el númer
     - Puede tomar cualquier valor de tipo `fecha` que represente la fecha en la que se realizó el pedido. Ejemplo: "2024-10-03"
 </p>
 
-### **Cliente**
-<p align="center">
-  <img src="images/cliente.png" alt="Entidad cliente">
-
-  - `(PK)` ID cliente: `int`
-    - Puede tomar cualquier valor de tipo `int` que represente el ID del cliente. Ejemplo: "123456"
-</p>
-
 ### **Cliente+**
 <p align="center">
   <img src="images/cliente+.png" alt="Entidad cliente+">
@@ -227,21 +216,6 @@ Se registra la fecha en la que accedió al programa de bonificaciones, el númer
     - **(1, N)** para el vivero, ya que un mismo vivero puede tener una o múltiples zonas.
 </p>
 
-### **Empleado-Zona**
-<p align="center">
-  <img src="images/empleado-zona.png" alt="Relacion empleado-zona">
-
-  - ### Relación: Trabaja
-    Muestra la relación entre un empleado y la zona en la que trabaja.
-
-    La cardinalidad de la relación es:
-
-    - **(1, N)** para la zona, ya que en una zona pueden trabajar de uno a muchos empleados.
-    - **(1, 1)** para el empleado, ya que un empleado sólo puede trabajar en una zona a la vez.
-  
-    Se le han asignado los atributos **tarea**, **fecha inicio** y **fecha fin** para llevar el control de la productividad en una cierta tarea.
-</p>
-
 ### **Producto-Zona**
 <p align="center">
   <img src="images/producto-zona.png" alt="Relacion producto-zona">
@@ -255,17 +229,30 @@ Se registra la fecha en la que accedió al programa de bonificaciones, el númer
     - **(1, 1)** para el producto, ya que un producto sólo puede ser asignado a una zona.
 </p>
 
-### **Empleado-Pedido**
+### **Empleado-Zona/Pedido**
 <p align="center">
-  <img src="images/empleado-pedido.png" alt="Relacion empleado-pedido">
+  <img src="images/empleado-zona-pedido.png" alt="Relacion empleado-zona-pedido">
 
-  - ### Relación: Realiza
-    Muestra la relación entre un empleado y el pedido que realiza.
+  En estas relaciones se aplica una restricción de inclusividad, en la que el empleado para realizar pedidos de productos procedentes de una zona en específico debe trabajar en ella.
 
-    La cardinalidad de la relación es:
+  - ### **Empleado-Zona**
+    - ### Relación: Trabaja
+      Muestra la relación entre un empleado y la zona en la que trabaja.
 
-    - **(1, 1)** para el pedido, un pedido sólo puede ser realizado por un empleado.
-    - **(0, N)** para el empleado, un empleado puede realizar cero o más pedidos.
+      La cardinalidad de la relación es:
+
+      - **(1, N)** para la zona, ya que en una zona pueden trabajar de uno a muchos empleados.
+      - **(1, 1)** para el empleado, ya que un empleado sólo puede trabajar en una zona a la vez.
+    
+      Se le han asignado los atributos **tarea**, **fecha inicio** y **fecha fin** para llevar el control de la productividad en una cierta tarea.
+
+  - ### **Empleado-Producto**
+    - ### Relación: Realiza
+      Muestra la relación entre un empleado y los pedidos que realiza.
+
+      La cardinalidad de la relación es:
+        - **(1,1)** para el pedido, ya que un pedido sólo puede ser realizado por un empleado.
+        - **(0,N)** para el empleado, ya que un empleado puede realizar cero o muchos pedidos.
 </p>
 
 ### **Pedido-Producto**
@@ -283,31 +270,30 @@ Se registra la fecha en la que accedió al programa de bonificaciones, el númer
 
 ### **Pedido-Cliente**
 <p align="center">
-  <img src="images/pedido-cliente.png" alt="Relacion pedido-cliente">
-
-    En esta relación se muestra una restricción de exclusividad, la cual indica en este caso que un pedido puede estar relacionado con un cliente normal o bien con un cliente+ miembro de la membresía Tajinaste Plus, pero no puede estar relacionado con ambos a la vez.
+  <img src="images/pedido-cliente+.png" alt="Relacion pedido-cliente+">
 
   - ### Relación: Realiza
-    Muestra la relación entre un cliente y el pedido que realiza.
+    Muestra la relación entre un cliente+ y el pedido que realiza.
 
     La cardinalidad de la relación es:
 
-    - **(1, N)** para el cliente, un cliente realiza uno o más pedidos, ya que si no tuviese ningún pedido realizado no se identificaría como cliente.
-    - **(1, 1)** para el pedido, un pedido sólo puede ser realizado por un cliente.
+    - **(1, N)** para el cliente+, un cliente realiza uno o más pedidos, ya que si no tuviese ningún pedido realizado no se identificaría como cliente+.
+    - **(1, 1)** para el pedido, un pedido sólo puede ser realizado por un cliente+.
 </p>
 
 ## 4. Restricciones semánticas
 
 ### 1. Relaciones
-- **Dependencia de existencia**:
-- Varias relaciones en el modelo implican que una entidad no puede existir sin estar vinculada a otra entidad. Por ejemplo, la relación "realiza" entre *Pedido* y *Cliente* sugiere que un cliente debe estar asociado con un pedido y viceversa ya que no puede existir un pedido que no pertenezca a ningun cliente y tampoco puede existir un cliente sin que tenga algún pedido asociado.
+- **Restricción de inclusividad**: En las relaciones entre empleado con zona y pedido se aplica una restricción de inclusividad, en la que el empleado para realizar pedidos de productos procedentes de una zona en específico debe trabajar en ella.
+
+- **Dependencia de existencia**: Varias relaciones en el modelo implican que una entidad no puede existir sin estar vinculada a otra entidad. Por ejemplo, la relación "realiza" entre *Pedido* y *Cliente* sugiere que un cliente debe estar asociado con un pedido y viceversa ya que no puede existir un pedido que no pertenezca a ningun cliente y tampoco puede existir un cliente sin que tenga algún pedido asociado.
   
 - **Integridad referencial**: Para las relaciones como "tiene", entre las entidades *Pedido* y *Producto* se asegura que los pedidos solo interactúan con productos existentes, lo que implica una validación de la integridad de las relaciones al momento de realizar operaciones.
 
 - **Unicidad en las asociaciones**: Algunas relaciones, como "realiza", imponen restricciones de exclusividad, donde un pedido sólo puede estar asociado a un único empleado, lo que garantiza la integridad en el origen de los pedidos.
 
 ### 2. Entidades y atributos identificadores
-- **Atributos identificadores únicos**: Todas las entidades cuentan con identificadores únicos (como *ID*, *georref*, o *Nombre*) que aseguran la unicidad y la integridad dentro del sistema. Estos atributos son cruciales para evitar duplicidades y garantizar la correcta identificación de cada instancia en las bases de datos.
+- **Atributos identificadores únicos**: Todas las entidades cuentan con identificadores únicos (como *ID* o *Nombre*) que aseguran la unicidad y la integridad dentro del sistema. Estos atributos son cruciales para evitar duplicidades y garantizar la correcta identificación de cada instancia en las bases de datos.
 
 - **Restricciones de integridad de los datos**: Atributos como el stock del producto, las fechas, y las georreferenciaciones están sujetos a restricciones de integridad, lo que asegura que se introduzcan datos válidos y consistentes dentro del modelo.
 
