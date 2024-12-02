@@ -90,7 +90,7 @@
             <mxPoint x="680" y="660" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="oUQV6pc-KXBkEdtGkyS2-193" value="&lt;font color=&quot;#ff0000&quot;&gt;(0,1)&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" parent="oUQV6pc-KXBkEdtGkyS2-9" vertex="1" connectable="0">
+        <mxCell id="oUQV6pc-KXBkEdtGkyS2-193" value="(1,1)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" parent="oUQV6pc-KXBkEdtGkyS2-9" vertex="1" connectable="0">
           <mxGeometry x="-0.7577" y="2" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
@@ -139,7 +139,7 @@
         <mxCell id="pYEbAgZ4Cut-oeOIJQDL-49" value="asociado" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
           <mxGeometry x="219" y="278" width="80" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="oUQV6pc-KXBkEdtGkyS2-10" value="&lt;font color=&quot;#ff0000&quot;&gt;(0,N)&lt;/font&gt;" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=none;endFill=0;" parent="1" source="oUQV6pc-KXBkEdtGkyS2-8" target="pYEbAgZ4Cut-oeOIJQDL-9" edge="1">
+        <mxCell id="oUQV6pc-KXBkEdtGkyS2-10" value="&lt;span style=&quot;caret-color: rgb(255, 0, 0);&quot;&gt;(1,N)&lt;/span&gt;" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=none;endFill=0;" parent="1" source="oUQV6pc-KXBkEdtGkyS2-8" target="pYEbAgZ4Cut-oeOIJQDL-9" edge="1">
           <mxGeometry x="0.6" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
