@@ -494,11 +494,10 @@
         <mxCell id="oUQV6pc-KXBkEdtGkyS2-202" value="precio" style="ellipse;whiteSpace=wrap;html=1;align=center;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;dashed=1;" parent="1" vertex="1">
           <mxGeometry x="625" y="350" width="70" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="oUQV6pc-KXBkEdtGkyS2-215" style="edgeStyle=none;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=none;endFill=0;" parent="1" source="oUQV6pc-KXBkEdtGkyS2-214" target="pYEbAgZ4Cut-oeOIJQDL-48" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="oUQV6pc-KXBkEdtGkyS2-214" value="nombre" style="ellipse;whiteSpace=wrap;html=1;align=center;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" parent="1" vertex="1">
-          <mxGeometry x="78" y="213" width="70" height="30" as="geometry" />
+        <mxCell id="oUQV6pc-KXBkEdtGkyS2-215" style="edgeStyle=none;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=none;endFill=0;" parent="1" source="3OHPBdB5qnMYp4nfrnpZ-12" target="pYEbAgZ4Cut-oeOIJQDL-48" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="137.74873734152925" y="217.39339828220182" as="sourcePoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="y6QWpXg095lwLzbXelxZ-2" value="imagenes" style="ellipse;shape=doubleEllipse;margin=3;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
           <mxGeometry x="424" y="445" width="70" height="30" as="geometry" />
@@ -526,6 +525,9 @@
         </mxCell>
         <mxCell id="3OHPBdB5qnMYp4nfrnpZ-9" value="equipacion" style="ellipse;whiteSpace=wrap;html=1;align=center;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" vertex="1" parent="1">
           <mxGeometry x="184" y="234.18" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="3OHPBdB5qnMYp4nfrnpZ-12" value="nombre" style="ellipse;whiteSpace=wrap;html=1;align=center;fontStyle=4;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;" vertex="1" parent="1">
+          <mxGeometry x="87" y="203" width="70" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
