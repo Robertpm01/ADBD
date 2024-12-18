@@ -1,0 +1,23 @@
+﻿{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Books {% endblock %}</h1>
+    {% for book in books %}
+        <div class='book'>
+            <h3>#{{ book[0] }} - {{ book[1] }} BY {{ book[2] }}</h3>
+            <i><p>({{ book[3] }} pages)</p></i>
+            <p class='review'>{{ book[4] }}</p>
+            <i><p>Added {{ book[5] }}</p></i>
+
+            <!-- Botón para eliminar el registro -->
+            <form action="{{ url_for('delete', id=book[0]) }}" method="POST" style="margin-top: 10px; display: inline;">
+                <button type="submit" onclick="return confirm('¿Está seguro de eliminar este libro?');">
+                    Eliminar
+                </button>
+            </form>
+
+            <!-- Enlace para actualizar el registro -->
+            <a href="{{ url_for('update', id=book[0]) }}" style="margin-left: 10px;">Actualizar</a>
+        </div>
+    {% endfor %}
+{% endblock %}

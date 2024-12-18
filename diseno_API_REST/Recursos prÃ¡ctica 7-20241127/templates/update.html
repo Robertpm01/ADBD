@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Actualizar Libro</h1>
+    <form action="{{ url_for('update', id=book[0]) }}" method="POST">
+        <label for="title">Título:</label><br>
+        <input type="text" id="title" name="title" value="{{ book[1] }}" required><br><br>
+        
+        <label for="author">Autor:</label><br>
+        <input type="text" id="author" name="author" value="{{ book[2] }}" required><br><br>
+        
+        <label for="pages_num">Número de Páginas:</label><br>
+        <input type="number" id="pages_num" name="pages_num" value="{{ book[3] }}" required><br><br>
+        
+        <label for="review">Reseña:</label><br>
+        <textarea id="review" name="review" rows="4" required>{{ book[4] }}</textarea><br><br>
+        
+        <button type="submit">Actualizar</button>
+        <a href="{{ url_for('index') }}">Cancelar</a>
+    </form>
+{% endblock %}
