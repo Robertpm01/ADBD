@@ -199,7 +199,7 @@
         <mxCell id="CnJ35eBEaYjJjfWg3e4Q-49" style="edgeStyle=none;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;endArrow=none;endFill=0;" edge="1" parent="1" source="CnJ35eBEaYjJjfWg3e4Q-50" target="CnJ35eBEaYjJjfWg3e4Q-92">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="CnJ35eBEaYjJjfWg3e4Q-50" value="envia" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+        <mxCell id="CnJ35eBEaYjJjfWg3e4Q-50" value="recibe" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
           <mxGeometry x="860" y="1430" width="80" height="50" as="geometry" />
         </mxCell>
         <mxCell id="CnJ35eBEaYjJjfWg3e4Q-51" value="" style="triangle;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;rotation=-180;direction=east;flipH=0;flipV=0;" vertex="1" parent="1">
