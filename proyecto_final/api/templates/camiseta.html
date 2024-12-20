@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Camisetas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: #333;
+            margin-top: 20px;
+        }
+        .button-container {
+            margin: 20px 0;
+        }
+        .add-button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .add-button:hover {
+            background-color: #0056b3;
+        }
+        .delete-button {
+            background-color: #FF4D4D;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .delete-button:hover {
+            background-color: #CC0000;
+        }
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #007BFF;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+        tr {
+            border-bottom: 1px solid #ddd;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        td {
+            font-size: 14px;
+            color: #555;
+        }
+        caption {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Camisetas</h1>
+    <div class="button-container">
+        <a href="/nueva" class="add-button">Añadir Nueva Camiseta</a>
+    </div>
+    <table>
+        <caption>Camisetas Disponibles</caption>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Temporada</th>
+                <th>Categoría</th>
+                <th>Talla</th>
+                <th>Equipo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in camisetas %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.temporada }}</td>
+                <td>{{ item.categoria }}</td>
+                <td>{{ item.talla }}</td>
+                <td>{{ item.nombre_equipo }}</td>
+                <td>
+                    <form action="/eliminar/{{ item.id }}" method="POST" style="display:inline;">
+                        <button type="submit" class="delete-button">Eliminar</button>
+                    </form>
+                </td>
+                <td>
+                    <a href="/editar/{{ item.id }}" class="edit-button">Editar</a>
+                </td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

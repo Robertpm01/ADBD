@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Camiseta</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: #333;
+            margin-top: 20px;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Editar Camiseta</h1>
+    <form action="/editar/{{ camiseta.id }}" method="POST">
+        <label for="temporada">Temporada</label>
+        <input type="text" id="temporada" name="temporada" value="{{ camiseta.temporada }}" required>
+
+        <label for="categoria">Categoría</label>
+        <select id="categoria" name="categoria" required>
+            <option value="jugador" {% if camiseta.categoria == 'jugador' %}selected{% endif %}>Jugador</option>
+            <option value="fan" {% if camiseta.categoria == 'fan' %}selected{% endif %}>Fan</option>
+            <option value="retro" {% if camiseta.categoria == 'retro' %}selected{% endif %}>Retro</option>
+            <option value="conjunto" {% if camiseta.categoria == 'conjunto' %}selected{% endif %}>Conjunto</option>
+        </select>
+
+        <label for="talla">Talla</label>
+        <select id="talla" name="talla" required>
+            <option value="S" {% if camiseta.talla == 'S' %}selected{% endif %}>S</option>
+            <option value="M" {% if camiseta.talla == 'M' %}selected{% endif %}>M</option>
+            <option value="L" {% if camiseta.talla == 'L' %}selected{% endif %}>L</option>
+            <option value="XL" {% if camiseta.talla == 'XL' %}selected{% endif %}>XL</option>
+            <option value="2XL" {% if camiseta.talla == '2XL' %}selected{% endif %}>2XL</option>
+        </select>
+
+        <label for="nombre_equipo">Nombre del Equipo</label>
+        <input type="text" id="nombre_equipo" name="nombre_equipo" value="{{ camiseta.equipo }}" required>
+
+        <button type="submit">Actualizar Camiseta</button>
+    </form>
+</body>
+</html>
