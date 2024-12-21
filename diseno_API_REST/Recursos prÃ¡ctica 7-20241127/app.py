@@ -320,3 +320,4 @@ def room_min_temperature(room_id):
         print(f"Error: {e}")
         return jsonify({"error": "An error occurred while retrieving the minimum temperature and room name."}), 500
 
+#201 codigo error cuando la operacion es satisfactoria
